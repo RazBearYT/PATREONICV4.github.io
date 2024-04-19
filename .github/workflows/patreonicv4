@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Verification</title>
+    <style>
+        body {
+            background-color: #6495ED;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .password-form {
+            margin-bottom: 20px;
+        }
+
+        .password-input {
+            padding: 10px;
+            width: 60%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .links-box {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+        }
+
+        .member-link {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .member-link:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Password Entry Form -->
+        <div class="password-form">
+            <h2>Enter a password to access the videos for free</h2>
+            <input type="password" id="password-input" class="password-input" placeholder="Enter password">
+            <button onclick="checkPassword()" class="submit-button">Submit</button>
+        </div>
+
+        <!-- Warning Message -->
+        <div id="warning-msg" class="warning">Incorrect password! Please try again.</div>
+
+        <!-- Links for Patreon members -->
+        <div class="links-box" id="member-links">
+            <h3>Click CALLMEARJ, RazBearEX, or UnrealEntGaming for the key to access.</h3>
+            <a href="#" onclick="openLink(event, 'https://link-center.net/477319/toopcahlm')" class="member-link">Callmearj</a>
+            <a href="#" onclick="openLink(event, 'https://direct-link.net/477319/do-you-kno-de-wey')" class="member-link">RazBearEX</a>
+            <a href="#" onclick="openLink(event, 'https://link-target.net/477319/hi-justhi')" class="member-link">UnrealEntGaming</a>
+        </div>
+    </div>
+
+    <!-- Script for Password Verification -->
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password-input").value;
+            var passwords = {
+                "Patreonic:iJ3Up7qIdkrzzY7iCXV5deXtI": "https://sites.google.com/view/callmeballz/callmearj-uv",
+                "Patreonic:w432NGMAR2ack3Ty1ljIOcLpR": "https://sites.google.com/view/patreonic-gh54ucl1qz/razbearex-uy",
+                "Patreonic:5udpJDfxOleeOxvM7lXydfbNV": "https://sites.google.com/view/unrealentgamin-unrealenthoohaa/unrealentgaming"
+            };
+
+            if (passwords.hasOwnProperty(password)) {
+                document.getElementById("warning-msg").classList.add("hidden");
+                document.querySelector(".password-form").classList.add("hidden");
+                document.getElementById("member-links").classList.remove("hidden");
+                // Redirect to the corresponding URL if the password is correct
+                window.open(passwords[password], '_blank');
+            } else {
+                document.getElementById("warning-msg").classList.remove("hidden");
+            }
+        }
+
+        function openLink(event, url) {
+            event.preventDefault();
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+
+</html>
